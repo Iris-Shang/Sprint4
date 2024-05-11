@@ -244,16 +244,24 @@ class LoginandMainViewtest extends ApplicationTest
     	robot.clickOn("#userpasswordarea");
     	robot.write("abc");
     	robot.clickOn("#loginbutton");
+        Assertions.assertThat(robot.lookup("#ADContent")
+                .queryAs(Label.class)).hasText("LOOK AT ME!! I AM COMPANYA");
     	robot.clickOn("#CloseADbutton");
     	robot.clickOn("#Entitybutton");
 
     	robot.clickOn("#Personbutton");
     	robot.clickOn("#CloseADbutton");
     	robot.clickOn("#Jobbutton");
+        Assertions.assertThat(robot.lookup("#ADContent")
+                .queryAs(Label.class)).hasText("LOOK AT ME!! I AM a PersonF");
     	robot.clickOn("#CloseADbutton");
     	robot.clickOn("#companybutton");
+        Assertions.assertThat(robot.lookup("#ADContent")
+                .queryAs(Label.class)).hasText("LOOK AT ME!! I AM a PersonF");
     	robot.clickOn("#CloseADbutton");
     	robot.clickOn("#skillbutton");
+        Assertions.assertThat(robot.lookup("#ADContent")
+                .queryAs(Label.class)).hasText("LOOK AT ME!! I AM COMPANYA");
     	robot.clickOn("#CloseADbutton");
     	
     	
