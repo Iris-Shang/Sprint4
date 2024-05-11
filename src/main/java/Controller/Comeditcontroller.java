@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import main.BB;
+import model.ADModel;
 import model.BBModel;
 import model.ViewTransitionalModel;
 
@@ -74,10 +75,12 @@ public class Comeditcontroller {
     
 	BBModel model;
 	BBModel edit;
+	ADModel ad;
 	
 	
-	public void setModel(BBModel newModel)
+	public void setModel(BBModel newModel,	ADModel ad)
 	 {
+		this.ad = ad;
 	    model = newModel;
 	    this.edit = new BBModel(this.model.stage,this.model.p.getID(),this.model.com.getID(),this.model.ski.getID(),this.model.example.getID());
 	    restjob.setItems(model.getRestjob());
@@ -166,7 +169,7 @@ public class Comeditcontroller {
 		{
 			view = loader.load();
     	    Maincontroller cont = loader.getController();
-    	    ViewTransitionalModel vm =new ViewTransitionalModel(view,model); 
+    	    ViewTransitionalModel vm =new ViewTransitionalModel(view,model,ad); 
     	    cont.setModel(vm);
     	    vm.showcompage();
     	       
@@ -215,7 +218,7 @@ public class Comeditcontroller {
 		{
 			view = loader.load();
     	    Maincontroller cont = loader.getController();
-    	    ViewTransitionalModel vm =new ViewTransitionalModel(view,edit); 
+    	    ViewTransitionalModel vm =new ViewTransitionalModel(view,edit,ad); 
     	    cont.setModel(vm);
     	    vm.showcompage();
     	       

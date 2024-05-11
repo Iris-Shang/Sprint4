@@ -14,9 +14,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 //import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import main.BB;
+import model.ADModel;
 import model.BBModel;
 import model.ViewTransitionalModel;
 
@@ -24,7 +27,8 @@ public class PersonController
 {
 	
 	BBModel model;
-	public void setModel(BBModel newModel)
+	ADModel ad;
+	public void setModel(BBModel newModel,ADModel ad)
 	 {
 		
 	    model = newModel;
@@ -37,9 +41,14 @@ public class PersonController
 	    companyLabel.textProperty().bindBidirectional((model.getCompany()));
 	    nameLabel.textProperty().bindBidirectional(model.getName());
 	    occupatationlabel.textProperty().bindBidirectional(model.getOccupatation());
-    	///skillslist.setEditable(false);
-    //	joblist.setEditable(false);
-    	//projectlist.setEditable(false);
+	    this.ad = ad;
+	    Image ima = new Image("https://t4.ftcdn.net/jpg/03/81/61/81/240_F_381618165_HFOJlcFKU6SwArADMkKNrZaHLde3IPLP.jpg");
+	    image.setImage(ima);
+	    ADContent.textProperty().bindBidirectional(ad.getA2());
+	    image.setVisible(true);
+	    ADContent.setVisible(true);
+	    this.CloseADbutton.setVisible(true);
+ 
 	  }
     @FXML
     private Button Editbutton;
@@ -54,6 +63,14 @@ public class PersonController
     private Label nameLabel;
 
     @FXML
+    private Label ADContent;
+
+    @FXML
+    private Button CloseADbutton;
+    
+    @FXML
+    private ImageView image;
+    @FXML
     private Label occupatationlabel;
  
     @FXML
@@ -61,7 +78,13 @@ public class PersonController
 
     @FXML
     private ListView<Skill> skillslist;
+    @FXML
+    void ClickonClose(ActionEvent event) {
+    	ADContent.setVisible(false);
+    	image.setVisible(false);
+    	CloseADbutton.setVisible(false);
 
+    }
     @FXML
     void handleEditProfileButtonAction(ActionEvent event) {
     	projectlist.setEditable(true);
@@ -74,7 +97,7 @@ public class PersonController
 		{
 			view = loader.load();
     	    Maincontroller cont = loader.getController();
-    	    ViewTransitionalModel vm =new ViewTransitionalModel(view,model); 
+    	    ViewTransitionalModel vm =new ViewTransitionalModel(view,model,ad); 
     	    cont.setModel(vm);
     	    vm.showpersoneditpage();
     	       

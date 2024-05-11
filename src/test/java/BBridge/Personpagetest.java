@@ -32,6 +32,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import main.BB;
+import model.ADModel;
 import model.BBModel;
 import model.ViewTransitionalModel;
 
@@ -63,7 +64,8 @@ class Personpagetest extends ApplicationTest
 	JRfollow jrf;
 	Integer i1;
 	Stage stage;
-	BBModel m;
+	BBModel m;		
+	ADModel ad;
 	//ArrayList<Entity> alltest = new ArrayList<Entity>();	
 
 	 
@@ -146,6 +148,13 @@ class Personpagetest extends ApplicationTest
 		.body(Ents)
 		.retrieve()
 		.body(String.class);
+		RDesc ads = new RDesc("Advertisement","ADlists",uriBase+"/Project1/Advertisement");
+		String adv = client.post()
+		.uri(uriBase+"/Project1/Advertisement")
+		.contentType(MediaType.APPLICATION_JSON)
+		.body(ads)
+		.retrieve()
+		.body(String.class);
 		
 		A = new Company(1,"A","companyA");
 		A.createinrest();
@@ -195,9 +204,11 @@ class Personpagetest extends ApplicationTest
 		C.updateinrest();
 		D.updater();
 		jp.updateinrest();
+		Service s2 = F.orderService(400,"Advertisement","Per");
+		Service s1 = A.orderService(401,"Advertisement","Com");
 
 		
-		
+		ADModel ad = new ADModel(stage);
         m = new BBModel(stage,1000,3,7,12);
         FXMLLoader loader = new FXMLLoader();
 	    loader.setLocation(BB.class.getResource("../main/Mainview.fxml"));
@@ -206,7 +217,7 @@ class Personpagetest extends ApplicationTest
 		{
 			view = loader.load();
     	    Maincontroller cont = loader.getController();
-    	    ViewTransitionalModel vm =new ViewTransitionalModel(view,m); 
+    	    ViewTransitionalModel vm =new ViewTransitionalModel(view,m,ad); 
     	    cont.setModel(vm);
     	    vm.showpage1();
     	       

@@ -10,6 +10,8 @@ import BBridge.DSAD;
 //import BBridge.DSSkill; 
 import BBridge.RDesc;
 import BBridge.Reteam;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 //import BBridge.Skill;
@@ -18,13 +20,20 @@ import javafx.stage.Stage;
 public class ADModel {
 	public ArrayList<Advertisement> all;
 	public Stage stage;
+	StringProperty a1;
+	StringProperty a2;
 	ObservableList<Advertisement> allad = FXCollections.observableArrayList();
 	
 	public ADModel(Stage stage) 
 	{
 		this.all = readallAD();
-		this.allad.addAll(all);
+		//this.allad.addAll(all);
 		this.stage = stage;
+		Advertisement a = all.get(0);
+		Advertisement b = all.get(1);
+		this.a1 =  new SimpleStringProperty(this,a.getContent(),a.getContent());
+		this.a2 =  new SimpleStringProperty(this,b.getContent(),b.getContent());
+		
 	}
 	
 	public ArrayList<Advertisement> readallAD()
@@ -75,13 +84,22 @@ public class ADModel {
 		this.stage = stage;
 	}
 
-	public ObservableList<Advertisement> getAllad() {
-		return allad;
+	public StringProperty getA1() {
+		return a1;
 	}
 
-	public void setAllad(ObservableList<Advertisement> allad) {
-		this.allad = allad;
+	public void setA1(StringProperty a1) {
+		this.a1 = a1;
 	}
+
+	public StringProperty getA2() {
+		return a2;
+	}
+
+	public void setA2(StringProperty a2) {
+		this.a2 = a2;
+	}
+
 	
 	
 

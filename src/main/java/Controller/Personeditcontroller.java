@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import main.BB;
+import model.ADModel;
 import model.BBModel;
 import model.ViewTransitionalModel;
 
@@ -25,8 +26,10 @@ public class Personeditcontroller
 {
 	BBModel model;
 	BBModel edit;
-	public void setModel(BBModel newModel)
+	ADModel ad;
+	public void setModel(BBModel newModel,ADModel ad)
 	 {
+		this.ad =ad;
 	    model = newModel;
 	    edit = new BBModel(this.model.stage,this.model.p.getID(),this.model.com.getID(),this.model.ski.getID(),this.model.example.getID());
 	    //companyLabel.setText(model.getCompany());
@@ -212,7 +215,7 @@ public class Personeditcontroller
 		{
 			view = loader.load();
     	    Maincontroller cont = loader.getController();
-    	    ViewTransitionalModel vm =new ViewTransitionalModel(view,edit); 
+    	    ViewTransitionalModel vm =new ViewTransitionalModel(view,edit,ad); 
     	    cont.setModel(vm);
     	    vm.showpage1();
     	       
@@ -256,7 +259,7 @@ public class Personeditcontroller
 		{
 			view = loader.load();
     	    Maincontroller cont = loader.getController();
-    	    ViewTransitionalModel vm =new ViewTransitionalModel(view,model); 
+    	    ViewTransitionalModel vm =new ViewTransitionalModel(view,model,ad); 
     	    cont.setModel(vm);
     	    vm.showpage1();
     	       

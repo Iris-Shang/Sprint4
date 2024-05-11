@@ -12,7 +12,7 @@ import org.springframework.web.client.RestClient;
 
 import javafx.stage.Stage;
 import model.ADModel;
-import model.BBModel;
+//import model.BBModel;
 
 class ADModeltest {
 	Company A;

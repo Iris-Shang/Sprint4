@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 //import org.junit.jupiter.api.Test;
@@ -19,15 +17,16 @@ import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.framework.junit5.Start;
 
 import Controller.LoginController;
-import Controller.Maincontroller;
+//import Controller.Maincontroller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 //import javafx.scene.control.ListView;
-import javafx.scene.layout.BorderPane;
+//import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import main.BB;
+import model.ADModel;
 import model.BBModel;
-import model.ViewTransitionalModel;
+//import model.ViewTransitionalModel;
 
 
 @ExtendWith(ApplicationExtension.class)
@@ -58,6 +57,7 @@ class LoginandMainViewtest extends ApplicationTest
 	Integer i1;
 	Stage stage;
 	BBModel m;
+	ADModel ad;
 	//ArrayList<Entity> alltest = new ArrayList<Entity>();	
 	@SuppressWarnings("unused")
 	private static <T> void assertArray(ArrayList<T> A, ArrayList<T> B)
@@ -148,6 +148,13 @@ class LoginandMainViewtest extends ApplicationTest
 		.body(Ents)
 		.retrieve()
 		.body(String.class);
+		RDesc ads = new RDesc("Advertisement","ADlists",uriBase+"/Project1/Advertisement");
+		String adv = client.post()
+		.uri(uriBase+"/Project1/Advertisement")
+		.contentType(MediaType.APPLICATION_JSON)
+		.body(ads)
+		.retrieve()
+		.body(String.class);
 		
 		A = new Company(1,"A","companyA");
 		A.createinrest();
@@ -197,7 +204,10 @@ class LoginandMainViewtest extends ApplicationTest
 		C.updateinrest();
 		D.updater();
 		jp.updateinrest();
-
+		Service s2 = F.orderService(400,"Advertisement","Per");
+		Service s1 = A.orderService(401,"Advertisement","Com");
+		
+		ADModel ad = new ADModel(stage);
 		
 		
         m = new BBModel(stage,1000,3,7,12);
@@ -207,7 +217,7 @@ class LoginandMainViewtest extends ApplicationTest
 		{
 			scene = new Scene(loader.load());
 		    LoginController con = loader.getController();
-		    con.setModel(m);
+		    con.setModel(m,ad);
 		        
 		    stage.setScene(scene);
 		    stage.setTitle("login page");
@@ -234,11 +244,17 @@ class LoginandMainViewtest extends ApplicationTest
     	robot.clickOn("#userpasswordarea");
     	robot.write("abc");
     	robot.clickOn("#loginbutton");
+    	robot.clickOn("#CloseADbutton");
     	robot.clickOn("#Entitybutton");
+
     	robot.clickOn("#Personbutton");
+    	robot.clickOn("#CloseADbutton");
     	robot.clickOn("#Jobbutton");
+    	robot.clickOn("#CloseADbutton");
     	robot.clickOn("#companybutton");
+    	robot.clickOn("#CloseADbutton");
     	robot.clickOn("#skillbutton");
+    	robot.clickOn("#CloseADbutton");
     	
     	
     }

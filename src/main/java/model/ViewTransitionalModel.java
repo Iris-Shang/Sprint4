@@ -40,7 +40,7 @@ public class ViewTransitionalModel implements ViewTransitionModelInterface
 	      Node view = loader.load();
 	      mainview.setCenter(view);
 	      PersonController cont = loader.getController();
-	      cont.setModel(model);
+	      cont.setModel(model,ad);
 	      
 	      
 	    } catch (IOException e) {
@@ -60,7 +60,7 @@ public class ViewTransitionalModel implements ViewTransitionModelInterface
 	      Node view = loader.load();
 	      mainview.setCenter(view);
 	      EntityController cont = loader.getController();
-	      cont.setModel(model);
+	      cont.setModel(model,ad);
 	      
 	      
 	    } catch (IOException e) {
@@ -81,7 +81,7 @@ public class ViewTransitionalModel implements ViewTransitionModelInterface
 	      Node view = loader.load();
 	      mainview.setCenter(view);
 	      JobController cont = loader.getController();
-	      cont.setModel(model);
+	      cont.setModel(model,ad);
 	      
 	      
 	    } catch (IOException e) {
@@ -101,7 +101,7 @@ public class ViewTransitionalModel implements ViewTransitionModelInterface
 	      Node view = loader.load();
 	      mainview.setCenter(view);
 	      Personeditcontroller cont = loader.getController();
-	      cont.setModel(model);
+	      cont.setModel(model,ad);
 	      
 	      
 	    } catch (IOException e) {
@@ -120,7 +120,7 @@ public class ViewTransitionalModel implements ViewTransitionModelInterface
 	      Node view = loader.load();
 	      mainview.setCenter(view);
 	      Jobeditcontroller cont = loader.getController();
-	      cont.setModel(model);
+	      cont.setModel(model,ad);
 	      
 	      
 	    } catch (IOException e) {
@@ -158,7 +158,7 @@ public class ViewTransitionalModel implements ViewTransitionModelInterface
 	      Node view = loader.load();
 	      mainview.setCenter(view);
 	      Skillcontroller cont = loader.getController();
-	      cont.setModel(model);
+	      cont.setModel(model,ad);
 	      
 	      
 	    } catch (IOException e) {
@@ -179,7 +179,7 @@ public class ViewTransitionalModel implements ViewTransitionModelInterface
 	      Node view = loader.load();
 	      mainview.setCenter(view);
 	      Skilleditcontroller cont = loader.getController();
-	      cont.setModel(model);
+	      cont.setModel(model,ad);
 	      
 	      
 	    } catch (IOException e) {
@@ -198,7 +198,7 @@ public class ViewTransitionalModel implements ViewTransitionModelInterface
 	      Node view = loader.load();
 	      mainview.setCenter(view);
 	      Comeditcontroller cont = loader.getController();
-	      cont.setModel(model);
+	      cont.setModel(model,ad);
 	      
 	      
 	    } catch (IOException e) {

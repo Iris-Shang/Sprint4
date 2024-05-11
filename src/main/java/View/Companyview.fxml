@@ -4,8 +4,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ComController">
@@ -57,13 +59,19 @@
              </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ListView id="ADList" fx:id="ADList" prefHeight="80.0" prefWidth="325.0" />
+                  <StackPane prefHeight="80.0" prefWidth="326.0">
+                     <children>
+                        <ImageView id="image" fx:id="image" fitHeight="125.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label id="ADContent" fx:id="ADContent" text="LOOK AT ME!! I AM COMPANYC" textFill="#ffffff" />
+                     </children>
+                  </StackPane>
                </children>
             </HBox>
       
          </VBox>
       
           <Button id="Editbutton" fx:id="Editbutton" layoutX="122.0" layoutY="312.0" onAction="#handleEditProfileButtonAction" text="Edit Profile" />
+         <Button id="CloseADbutton" fx:id="CloseADbutton" layoutX="245.0" layoutY="314.0" mnemonicParsing="false" onAction="#ClickonClose" text="Close AD" />
       
       </AnchorPane>
    </content>

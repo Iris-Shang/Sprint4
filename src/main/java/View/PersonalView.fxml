@@ -4,13 +4,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PersonController">
    <content>
-      <AnchorPane prefHeight="425.0" prefWidth="327.0">
+      <AnchorPane prefHeight="508.0" prefWidth="327.0">
       
       
       
@@ -65,8 +67,14 @@
       
          </VBox>
       
-          <Button id="Editbutton" fx:id="Editbutton" layoutX="126.0" layoutY="385.0" onAction="#handleEditProfileButtonAction" text="Edit Profile" />
-         <ListView id="ADList" fx:id="ADList" layoutX="25.0" layoutY="307.0" prefHeight="50.0" prefWidth="254.0" />
+          <Button id="Editbutton" fx:id="Editbutton" layoutX="30.0" layoutY="468.0" onAction="#handleEditProfileButtonAction" text="Edit Profile" />
+         <Button id="CloseADbutton" fx:id="CloseADbutton" layoutX="237.0" layoutY="469.0" mnemonicParsing="false" onAction="#ClickonClose" text="CloseAD" />
+         <StackPane layoutX="30.0" layoutY="292.0" prefHeight="150.0" prefWidth="279.0">
+            <children>
+               <ImageView id="image" fx:id="image" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               <Label id="ADContent" fx:id="ADContent" text="Label" textFill="#ffffff"/>
+            </children>
+         </StackPane>
       
       </AnchorPane>
    </content>
